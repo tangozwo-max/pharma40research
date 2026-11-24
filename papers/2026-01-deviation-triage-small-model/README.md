@@ -21,7 +21,7 @@ Results are on synthetic data and await confirmation on real plant notes.
 
 | Path | What |
 |---|---|
-| `paper/` | the article: `Cancemi_2026_Task-specific-fine-tuning-of-a-small-AI-model-for-GMP-deviation-triage.pdf` (10 pages) and its HTML source (`experiment-2.html`) with `paper.css` and the figures |
+| `paper/` | the article: `Cancemi_2026_Task-specific-fine-tuning-of-a-small-AI-model-for-GMP-deviation-triage.pdf` (9 pages) and its HTML source (`experiment-2.html`) with `paper.css` and the figures |
 | `data/` | data set v2 as used in the article (frozen 23.11.2026), see below |
 | `CITATION.cff` | citation |
 
@@ -66,4 +66,5 @@ Check the files: `sha256sum data/*.jsonl` and compare with `MANIFEST.json`.
 ## Versions
 
 - Data set v2, frozen 23.11.2026 – published 24.11.2026.
-- Article v1.4 – added in `paper/` (earlier versions 1.0–1.3 were internal drafts).
+- Article v1.4 – published 24.11.2026 (earlier versions 1.0–1.3 were internal drafts).
+- Article v1.5 – 24.11.2026, after a critical review: pre-study moved into section 2.4, figures renumbered, wording of the comparison with the hosted reference model sharpened.
