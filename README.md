@@ -5,7 +5,7 @@ Applied AI and technology research for regulated industries, tested on the
 plant with emulated systems, simulated machines and AI agents.
 
 This repository holds the **working papers** and the data that can be published with them.
-The papers are listed at [pharma40.de/papers](https://pharma40.de/papers); how they came
+The papers are listed at [pharma40.de/research](https://pharma40.de/research); how they came
 about is told in the [devlog](https://pharma40.de/devlog).
 
 > Working papers, not peer reviewed. All data are synthetic and refer to a fictional plant.
