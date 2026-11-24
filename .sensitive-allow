@@ -1,0 +1,2 @@
+# Exact strings the sensitive-data check may ignore (scripts/check-sensitive.sh), one per line, each with a reason.
+# Keep this list short. Never add a real address, host name, ID or key here.

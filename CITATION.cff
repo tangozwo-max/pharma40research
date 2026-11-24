@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use material from this repository, please cite the paper it belongs to (see the CITATION.cff in each paper folder) or this repository."
+title: "pharma40research: working papers of the pharma|40 virtual factory"
+type: dataset
+authors:
+  - family-names: Cancemi
+    given-names: Alessandro
+repository-code: "https://github.com/tangozwo-max/pharma40research"
+url: "https://pharma40.de/papers"
+license: CC-BY-4.0
+keywords:
+  - applied AI
+  - pharmaceutical manufacturing
+  - GMP
+  - regulated industries

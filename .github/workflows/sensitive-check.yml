@@ -1,0 +1,17 @@
+# Every push and pull request: no IPs, *.ts.net names, Supabase IDs or keys, dotenv file paths, server paths or tokens
+# in any file, including the text of PDFs. See scripts/check-sensitive.sh.
+name: sensitive-check
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pdftotext
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+      - name: Scan files
+        run: bash scripts/check-sensitive.sh
