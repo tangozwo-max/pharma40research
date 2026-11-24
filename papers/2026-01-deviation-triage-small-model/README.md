@@ -21,7 +21,7 @@ Results are on synthetic data and await confirmation on real plant notes.
 
 | Path | What |
 |---|---|
-| `paper/` | the article: `experiment-2.pdf` (10 pages) and its HTML source with `paper.css` and the figures |
+| `paper/` | the article: `Cancemi_2026_Task-specific-fine-tuning-of-a-small-AI-model-for-GMP-deviation-triage.pdf` (10 pages) and its HTML source (`experiment-2.html`) with `paper.css` and the figures |
 | `data/` | data set v2 as used in the article (frozen 23.11.2026), see below |
 | `CITATION.cff` | citation |
 
