@@ -69,7 +69,7 @@ figure img { width: 100%; display: block; }
 .refs { font-size: 7.9pt; line-height: 1.35; text-align: left; }
 .refs p { margin: 0 0 4px; padding-left: 12px; text-indent: -12px; }
 .brk { break-inside: auto; }
-.fig1 img { width: 88%; margin: 0 auto; }
+.fig1 img { width: 74%; margin: 0 auto; }
 .t7 td, .t7 th { white-space: nowrap; }
 .t7 table { font-size: 6.9pt; }
 .t8 table { font-size: 7pt; }

@@ -69,3 +69,4 @@ Check the files: `sha256sum data/*.jsonl` and compare with `MANIFEST.json`.
 - Data set v2, frozen 23.11.2026 – published 24.11.2026.
 - Article v1.4 – published 24.11.2026 (earlier versions 1.0–1.3 were internal drafts).
 - Article v1.5 – 24.11.2026, after a critical review: pre-study moved into section 2.4, figures renumbered, wording of the comparison with the hosted reference model sharpened.
+- Article v1.6 – 24.11.2026: layout and proofreading; headline numbers unchanged.
