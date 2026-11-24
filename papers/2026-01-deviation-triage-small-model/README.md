@@ -13,8 +13,8 @@ reviewer. Two errors matter: a wrong class and an invented value, which in GMP t
 On a synthetic, generator-labelled data set of 4,286 notes from 150 cause families, five switchable building blocks
 around one small open-weight model (Qwen3-8B) and LoRA fine-tuning were tested. Code-side grounding removed invented
 values (21.1 % to 0.0 %) without loss of classification; a LoRA adapter trained for 20 minutes raised macro-F1 on
-unseen cause families from 94.3 % to 98.2 %, at least as good as a large hosted reference model (difference not significant;
-better on seen families). Classification and grounding
+unseen cause families from 94.3 % to 98.2 %, not worse than a large hosted reference model on
+unseen families (+1.4 points, not significant) and better on seen families (+3.9). Classification and grounding
 are separate problems with separate remedies: training decides the class, code decides whether the values are true.
 Results are on synthetic data and await confirmation on real plant notes.
 
