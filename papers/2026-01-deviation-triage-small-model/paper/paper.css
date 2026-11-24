@@ -1,0 +1,76 @@
+/* Journal layout for the experiment articles: A4, two columns, abstract across both.
+   Colours and fonts from the landing page (src/styles/base.css): paper, ink, teal accent, Source Serif 4 + Inter. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@500&display=swap');
+
+:root {
+  --paper: #FCFBF9; --surface: #FFFFFF; --ink: #14233A; --ink-2: #44505F; --muted: #6F7987; --line: #E2DDD3;
+  --accent: #0B6E69;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@page { size: A4; margin: 17mm 15mm 18mm 15mm;
+  @bottom-center { content: counter(page); font: 8pt var(--sans); color: #6F7987; } }
+* { box-sizing: border-box; }
+html { background: var(--paper); }
+body { margin: 0 auto; max-width: 210mm; padding: 14mm 15mm; background: var(--paper); color: var(--ink);
+  font: 9.4pt/1.42 var(--serif); hyphens: auto; -webkit-hyphens: auto; text-align: justify; }
+@media print { body { padding: 0; max-width: none; background: var(--paper); -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+
+/* masthead */
+.mast { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1.2px solid var(--ink);
+  padding-bottom: 4px; font: 500 8pt var(--sans); color: var(--ink-2); text-align: left; }
+.mast .brand { font-family: "IBM Plex Sans", var(--sans); font-size: 10.5pt; color: var(--ink); letter-spacing: -.02em; }
+.mast .brand b { color: var(--accent); font-weight: 500; }
+h1.title { font: 600 19pt/1.18 var(--serif); margin: 14px 0 4px; text-align: left; letter-spacing: -.005em; }
+.subtitle { font: italic 11.5pt/1.3 var(--serif); color: var(--ink-2); margin: 0 0 9px; text-align: left; }
+.authors { font: 9pt var(--sans); color: var(--ink); text-align: left; }
+.affil { font: 7.8pt var(--sans); color: var(--muted); margin-top: 2px; text-align: left; }
+.meta { font: 7.6pt var(--sans); color: var(--muted); margin: 6px 0 10px; text-align: left; }
+
+/* abstract across both columns */
+.abstract { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 9px 0 10px; margin-bottom: 14px; }
+.abstract h2 { font: 600 8.2pt var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0 0 4px; }
+.abstract p { margin: 0 0 5px; font-size: 9.2pt; }
+.keywords { font: 7.8pt var(--sans); color: var(--ink-2); text-align: left; }
+.keywords b { font-weight: 600; color: var(--ink); }
+
+/* two-column body */
+.cols { column-count: 2; column-gap: 7mm; column-fill: auto; }
+.cols h2 { font: 600 10.6pt var(--sans); margin: 12px 0 5px; color: var(--ink); text-align: left; break-after: avoid; }
+.cols h3 { font: 600 9.2pt var(--sans); margin: 9px 0 3px; color: var(--ink-2); text-align: left; break-after: avoid; }
+.cols p { margin: 0 0 6px; }
+.cols ul, .cols ol { margin: 0 0 6px; padding-left: 15px; }
+.cols li { margin-bottom: 2px; }
+.span { column-span: all; margin: 6px 0 10px; }
+a { color: var(--accent); text-decoration: none; }
+code { font: 8pt "Cascadia Mono", Consolas, monospace; color: var(--ink-2); }
+.note { font: 7.8pt var(--sans); color: var(--muted); text-align: left; }
+
+/* tables */
+table { width: 100%; border-collapse: collapse; font: 7.4pt/1.3 var(--sans); margin: 3px 0 4px; text-align: left; }
+thead th { border-top: 1.1px solid var(--ink); border-bottom: .7px solid var(--ink); font-weight: 600; padding: 3px 4px; vertical-align: bottom; }
+tbody td { padding: 2.2px 4px; border-bottom: .4px solid var(--line); vertical-align: top; }
+tbody tr:last-child td { border-bottom: 1.1px solid var(--ink); }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+tr.best td { font-weight: 600; }
+tr.sub td { color: var(--ink-2); }
+tr.grp td { font-weight: 600; color: var(--accent); padding-top: 5px; border-bottom: none; }
+figure, .tbl { margin: 6px 0 10px; break-inside: avoid; }
+.tbl .cap, figcaption { font: 7.6pt/1.35 var(--sans); color: var(--ink-2); text-align: left; margin: 0 0 3px; }
+figcaption { margin: 4px 0 0; }
+.cap b, figcaption b { color: var(--ink); }
+figure img { width: 100%; display: block; }
+
+/* boxes */
+.box { border-left: 2.5px solid var(--accent); background: var(--surface); padding: 6px 8px; margin: 6px 0 9px; font-size: 8.8pt; break-inside: avoid; }
+.box b { font-family: var(--sans); font-size: 8pt; }
+
+/* references */
+.refs { font-size: 7.9pt; line-height: 1.35; text-align: left; }
+.refs p { margin: 0 0 4px; padding-left: 12px; text-indent: -12px; }
+.brk { break-inside: auto; }
+.fig1 img { width: 88%; margin: 0 auto; }
+.t7 td, .t7 th { white-space: nowrap; }
+.t7 table { font-size: 6.9pt; }
+.t8 table { font-size: 7pt; }
+.flow svg { width: 100%; display: block; }

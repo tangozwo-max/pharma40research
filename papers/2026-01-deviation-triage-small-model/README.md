@@ -21,7 +21,7 @@ Results are on synthetic data and await confirmation on real plant notes.
 
 | Path | What |
 |---|---|
-| `paper/` | the article (PDF and HTML source) – added with version 1.4 |
+| `paper/` | the article: `experiment-2.pdf` (10 pages) and its HTML source with `paper.css` and the figures |
 | `data/` | data set v2 as used in the article (frozen 23.11.2026), see below |
 | `CITATION.cff` | citation |
 
