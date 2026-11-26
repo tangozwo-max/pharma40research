@@ -70,3 +70,4 @@ Check the files: `sha256sum data/*.jsonl` and compare with `MANIFEST.json`.
 - Article v1.4 – published 24.11.2026 (earlier versions 1.0–1.3 were internal drafts).
 - Article v1.5 – 24.11.2026, after a critical review: pre-study moved into section 2.4, figures renumbered, wording of the comparison with the hosted reference model sharpened.
 - Article v1.6 – 24.11.2026: layout and proofreading; headline numbers unchanged.
+- Article v1.7 – 26.11.2026: classifier arm added (DeBERTa-v3-base trained on the same notes; threshold pre-registered on dev before one prediction of the test sets): new sections 3.6 and 4.8, Table 8, abstract and conclusion extended; earlier tables 8–9 are now 9–10. Earlier results unchanged.
