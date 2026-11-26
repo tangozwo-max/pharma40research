@@ -1,5 +1,5 @@
-/* Journal layout for the research papers (layout v2, 26.11.2026): A4; header as in Elsevier, front matter (author column
-   + abstract) and footer as in PMC/Frontiers, main text in two columns.
+/* Journal layout for the research papers (layout v3, 26.11.2026): A4; header with logo, journal box and journal cover,
+   front matter (author column + abstract) and footer as in PMC/Frontiers, main text in two columns.
    Colours and fonts from the landing page (src/styles/base.css): paper, ink, teal accent, Source Serif 4 + Inter. */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@300;500;600&display=swap');
 
@@ -9,8 +9,8 @@
   --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
   --sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
 }
-/* Footer as in PMC/Frontiers: domain bottom left (build_pdf.py makes it a link), right "month year | research number |
-   page", set per paper in a <style> in the paper's <head>. */
+/* Footer as in PMC/Frontiers: domain bottom left, right "month year | research number | page" (set per paper in a
+   <style> in the paper's <head>). build_pdf.py draws the thin rule above it and makes the domain a link. */
 @page { size: A4; margin: 17mm 15mm 18mm 15mm;
   @bottom-left { content: "pharma40.de"; font: 600 7.6pt var(--sans); color: var(--ink); vertical-align: top; padding-top: 4mm; }
   @bottom-right { content: counter(page); font: 7.6pt var(--sans); color: var(--ink-2); vertical-align: top; padding-top: 4mm; } }
@@ -20,37 +20,43 @@ body { margin: 0 auto; max-width: 210mm; padding: 14mm 15mm; background: var(--p
   font: 9.4pt/1.42 var(--serif); hyphens: auto; -webkit-hyphens: auto; text-align: justify; }
 @media print { body { padding: 0; max-width: none; background: var(--paper); -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
 
-/* header as in Elsevier: line with research number and version, logo left, title box with the homepage link;
-   no cover picture */
+/* header: logo of the virtual factory left, white box with the journal title and its homepage, the journal cover
+   right (a typographic cover until the picture exists); thick rule below */
 .jhead { text-align: left; }
-.jline { font: 7.6pt var(--sans); color: var(--cite); text-align: center; margin: 0 0 4px; }
-.jband { display: flex; align-items: stretch; gap: 5mm; border-top: .6px solid var(--ink); border-bottom: 1.6px solid var(--ink); padding: 3mm 0; }
+.jband { display: flex; align-items: stretch; gap: 4mm; border-bottom: 1.6px solid var(--ink); padding: 0 0 3mm; }
 .jlogo { display: flex; flex-direction: column; justify-content: center; width: 38mm; color: var(--ink); }
 .jlogo .wm { font: 500 17pt/1 "IBM Plex Sans", var(--sans); letter-spacing: -.02em; white-space: nowrap; }
 .jlogo .wm b { font-weight: 600; color: var(--accent); }
-.jlogo .bar { opacity: .4; font-weight: 300; margin: 0 .06em; }
+.bar { opacity: .4; font-weight: 300; margin: 0 .06em; }
 .jlogo .vf { font: 6.4pt var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
 .jbox { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
-  background: #EFEDE8; padding: 4mm 0; }
+  background: var(--surface); border: .6px solid var(--line); padding: 4mm 0; }
 .jname { font: 15pt var(--serif); color: var(--ink); }
 .jhome { font: 7.6pt var(--sans); letter-spacing: .1em; color: var(--ink-2); }
 .jhome a { color: var(--cite); }
+.jcover { width: 22mm; aspect-ratio: 210 / 297; flex: none; display: flex; flex-direction: column; justify-content: space-between;
+  padding: 2mm 1.8mm; background: var(--accent); color: #fff; overflow: hidden; }
+.jcover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.jcover:has(img) { padding: 0; background: none; }
+.cv-wm { font: 500 6pt/1 "IBM Plex Sans", var(--sans); letter-spacing: -.02em; }
+.cv-wm b { font-weight: 600; }
+.cv-t { font: 600 7.2pt/1.15 var(--serif); }
+.cv-a { font: 600 6pt var(--sans); letter-spacing: .16em; opacity: .8; }
 .kind { font: 9.6pt var(--serif); color: var(--ink); margin: 6mm 0 0; text-align: left; }
 h1.title { font: 600 19pt/1.2 var(--serif); margin: 4mm 0 2.5mm; text-align: left; letter-spacing: -.005em; }
-.subtitle { font: italic 11.5pt/1.3 var(--serif); color: var(--ink-2); margin: 0 0 8mm; text-align: left; }
+.subtitle { font: italic 11.5pt/1.3 var(--serif); color: var(--ink-2); margin: 0 0 9mm; text-align: left; }
 
-/* after the title as in PMC/Frontiers: narrow left column (author, history, keywords), abstract in the main column */
-.front { display: grid; grid-template-columns: 37mm 1fr; column-gap: 7mm; border-top: .6px solid var(--ink); padding-top: 4mm; margin-bottom: 8mm; }
+/* after the title as in PMC/Frontiers: narrow left column (author, published, keywords, data, QR code to the article),
+   abstract in the main column */
+.front { display: grid; grid-template-columns: 37mm 1fr; column-gap: 7mm; margin-bottom: 8mm; }
 .side { font: 7.4pt/1.4 var(--sans); color: var(--ink-2); text-align: left; }
-.side h4 { font: italic 600 7.4pt var(--sans); color: var(--ink); margin: 0 0 1.5mm; }
-.side p { margin: 0 0 4mm; }
-.side .author { font: 600 12.5pt/1.25 var(--serif); color: var(--ink); margin: 0 0 1mm; }
-.side .affil { margin: 0 0 5mm; }
-.kwbox { border: .6px solid var(--line); background: var(--surface); padding: 2.5mm 3mm; margin: 0 0 4mm; }
-.kwbox ul { list-style: none; margin: 0; padding: 0; }
-.kwbox li { margin: 0 0 .6mm; }
-.side .meta { font-size: 6.8pt; color: var(--muted); }
+.side h4 { font: italic 600 7.4pt var(--sans); color: var(--ink); margin: 0 0 1.2mm; }
+.side p { margin: 0 0 3.5mm; }
+.side .author { font: 600 8.6pt/1.3 var(--serif); color: var(--ink); }
+.side .meta { font-size: 6.8pt; color: var(--muted); margin-bottom: 2.5mm; }
 .side code { font-size: 6.4pt; }
+.side .qr { display: block; width: 20mm; }
+.side .qr svg { width: 100%; height: auto; display: block; }
 .abstract h2 { font: 7.6pt var(--sans); letter-spacing: .32em; text-transform: uppercase; color: var(--ink);
   border-bottom: .6px solid var(--ink); padding-bottom: 1.5mm; margin: 0 0 2.5mm; }
 .abstract p { margin: 0 0 2mm; font-size: 7.4pt; line-height: 1.45; }
