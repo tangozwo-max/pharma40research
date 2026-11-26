@@ -1,4 +1,4 @@
-/* Journal layout for the research papers (layout v3, 26.11.2026): A4; header with logo, journal box and journal cover,
+/* Layout for the research papers (layout v3, 26.11.2026): A4; header with logo, series box and series cover,
    front matter (author column + abstract) and footer as in PMC/Frontiers, main text in two columns.
    Colours and fonts from the landing page (src/styles/base.css): paper, ink, teal accent, Source Serif 4 + Inter. */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@300;500;600&display=swap');
@@ -20,8 +20,8 @@ body { margin: 0 auto; max-width: 210mm; padding: 14mm 15mm; background: var(--p
   font: 9.4pt/1.42 var(--serif); hyphens: auto; -webkit-hyphens: auto; text-align: justify; }
 @media print { body { padding: 0; max-width: none; background: var(--paper); -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
 
-/* header: logo of the virtual factory left, white box with the journal title and its homepage, the journal cover
-   right (its picture, e.g. journal-airi.jpg next to the paper; without one a typographic cover); thick rule below */
+/* header: logo of the virtual factory left, white box with the series title and its homepage, the series cover
+   right (its picture, e.g. series-airi.jpg next to the paper; without one a typographic cover); thick rule below */
 .jhead { text-align: left; }
 .jband { display: flex; align-items: stretch; gap: 4mm; border-bottom: 1.6px solid var(--ink); padding: 0 0 3mm; }
 .jlogo { display: flex; flex-direction: column; justify-content: center; width: 38mm; color: var(--ink); }
@@ -37,7 +37,7 @@ body { margin: 0 auto; max-width: 210mm; padding: 14mm 15mm; background: var(--p
 .jcover { width: 22mm; aspect-ratio: 210 / 297; flex: none; align-self: flex-start; display: flex; flex-direction: column; justify-content: space-between;
   padding: 2mm 1.8mm; background: var(--accent); color: #fff; overflow: hidden; }
 .jcover img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.jcover:has(img) { padding: 0; background: none; border: .6px solid var(--line); }   /* the journal's picture (owner, 26.11.2026) */
+.jcover:has(img) { padding: 0; background: none; border: .6px solid var(--line); }   /* the series's picture (owner, 26.11.2026) */
 .cv-wm { font: 500 6pt/1 "IBM Plex Sans", var(--sans); letter-spacing: -.02em; }
 .cv-wm b { font-weight: 600; }
 .cv-t { font: 600 7.2pt/1.15 var(--serif); }
