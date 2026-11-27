@@ -27,7 +27,7 @@
 <h4>Author</h4>
 <p class="author">Alessandro Cancemi</p>
 <h4>Published</h4>
-<p>24 November 2026<br>Version 1.11, 27 November 2026</p>
+<p>24 November 2026<br>Version 1.12, 27 November 2026</p>
 <h4>Keywords</h4>
 <p class="kw">small language models<br>LoRA<br>structured extraction<br>grounding<br>data integrity<br>GMP<br>deviation management<br>ablation<br>cluster bootstrap</p>
 <p class="meta">Article and data set v2: github.com/tangozwo-max/<wbr>pharma40research, folder <code>papers/<wbr>2026-01-deviation-<wbr>triage-small-model/</code> (text and data CC BY 4.0). Code and run outputs available on request.</p>
@@ -97,7 +97,7 @@
 
 <h3>2.4. Pre-study and what changed</h3>
 <p>Experiment 1 compared twelve set-ups on 360 notes from 15 unseen families (<a class="cite" href="#ref-cancemi-2026">Cancemi, 2026</a>; Table 2, Figure 1). Its lessons shaped this study: (i) the bare 8B model invented values in 30 % of answers; (ii) ten examples in the prompt helped classification far more than the JSON schema; (iii) a LoRA adapter trained on only 400 notes without the later pipeline input more than halved invented values (29.7 → 12.2 %) but lost 10.8 points to the examples on unseen families. Experiment 2 therefore used 150 instead of 50 families, a seven times larger training set, separate writers for training and test, training in the pipeline input format, and switchable blocks instead of fixed arms.</p>
-<p>The bare Qwen3-8B with only the task description reached 82.8 % macro-F1 and invented a value in 29.7 % of answers (Table 2). Adding ten examples and the schema together raised macro-F1 to 95.7 %, but invented values stayed at 18.3 %. The adapter arms of the same study separate the two levers: the schema alone added 1.6 points (84.9 → 86.5) and left invented values unchanged (12.2 → 11.9 %); the ten examples on top added 9.1 points (86.5 → 95.6) and <i>raised</i> invented values to 16.9 %. Valid JSON was near 100 % even without the schema.</p>
+<p>The bare Qwen3-8B with only the task description reached 82.8 % macro-F1 and invented a value in 29.7 % of answers (Table 2). Adding ten examples and the schema together raised macro-F1 to 95.7 %, but invented values stayed at 18.3 %. The adapter arms of the same study separate the two levers: the schema alone added 1.6 points (84.9 → 86.5) and left invented values unchanged (12.2 → 11.9 %); the ten examples on top added 9.1 points (86.5 → 95.6) and <i>raised</i> invented values to 16.9 %. Valid JSON was near 100 % even without the schema. With ten examples and the schema in place, the adapter added nothing: 95.6 against 95.7 % macro-F1, and 16.9 against 18.3 % invented values (Figure 1, bottom). The pre-study therefore did not show that fine-tuning is of no use, but that a small adapter trained on little data in another input format adds nothing to good prompting. The main study tests the opposite conditions (§3.4): there the adapter improved classification on unseen causes by 3.9 points over the prompted base, while code blocks, not training, removed the invented values.</p>
 <div class="tbl">
 <p class="cap"><b>Table 2.</b> Pre-study, Qwen3-8B and large hosted models (data set v1, 360 notes). Cost from actual API bills.</p>
 <table>
@@ -119,7 +119,7 @@
 <figure class="span fig1">
 <img src="fig1_arms.png" alt="Figure 1, top: all set-ups of the pre-study">
 <img src="fig1b_qwen3_8b.png" alt="Figure 1, bottom: Qwen3-8B on one GPU, paired differences to C">
-<figcaption><b>Figure 1.</b> Pre-study (experiment 1, data set v1, 360 notes from unseen families). Top: a, macro-F1 with 95 % bootstrap CI over notes (not families); b, answers with an invented value (“unsupported claim” in the pre-study’s terms), grouped by where the model runs; within a group from the plain prompt to the most added. Bottom: Qwen3-8B variants on one rented GPU, paired differences to C (ten examples + schema). Colour uses fixed limits: macro-F1 green ≥ 95 %, amber 85 to &lt; 95 %, red &lt; 85 %; invented values green ≤ 1 %, amber &gt; 1 to 10 %, red &gt; 10 %. Circle = prompting, diamond = LoRA. Reproduced from <a class="cite" href="#ref-cancemi-2026">Cancemi (2026)</a>.</figcaption>
+<figcaption><b>Figure 1.</b> Pre-study (experiment 1, data set v1, 360 notes from unseen families). Top: a, macro-F1 with 95 % bootstrap CI over notes (not families); b, answers with an invented value (“unsupported claim” in the pre-study’s terms), grouped by where the model runs; within a group from the plain prompt to the most added; the columns show the levers used (examples in the prompt, output constrained to the JSON schema, LoRA adapter). Bottom: Qwen3-8B variants on one rented GPU, paired differences to C (ten examples + schema); right = better for both measures, so the change in invented values is drawn with its sign turned and labelled “more” or “fewer”. Colour uses fixed limits: macro-F1 green ≥ 95 %, amber 85 to &lt; 95 %, red &lt; 85 %; invented values green ≤ 1 %, amber &gt; 1 to 10 %, red &gt; 10 %. Circle = prompting, diamond = LoRA. Reproduced from <a class="cite" href="#ref-cancemi-2026">Cancemi (2026)</a>. What the main study changed: §2.4.</figcaption>
 </figure>
 
 
@@ -325,7 +325,7 @@
 
 <figure class="span">
 <img src="fig2_pipeline.png" alt="Figure 3">
-<figcaption><b>Figure 3.</b> Main study: test sets of experiment 2. a: macro-F1 with 95 % CI over families (circle: unseen families; square: seen families); b: answers with an invented value; c: input tokens per note (grey, thousands) and model calls per note (dark) on the unseen set. Colour uses the fixed limits of Figure 1. The rule separates the hosted reference model from the Qwen3-8B set-ups; the first three rows were added later on an L40S.</figcaption>
+<figcaption><b>Figure 3.</b> Main study: test sets of experiment 2. a: macro-F1 with 95 % CI over families (circle: unseen families; square: seen families); b: answers with an invented value; c: input tokens per note (grey, thousands) and model calls per note (dark) on the unseen set. The columns show the levers used: examples, schema, LoRA and code blocks (with S1 the schema is built per note, with S2 the examples are the ten most similar training notes). Colour uses the fixed limits of Figure 1. The rule separates the hosted reference model from the Qwen3-8B set-ups; the first three rows were added later on an L40S.</figcaption>
 </figure>
 
 <h3>3.5. Cost per note</h3>
