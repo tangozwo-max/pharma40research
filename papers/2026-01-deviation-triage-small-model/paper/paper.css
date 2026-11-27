@@ -59,7 +59,7 @@ h1.title { font: 600 19pt/1.2 var(--serif); margin: 4mm 0 2.5mm; text-align: lef
 .side .qr svg { width: 100%; height: auto; display: block; }
 .abstract h2 { font: 7.6pt var(--sans); letter-spacing: .32em; text-transform: uppercase; color: var(--ink);
   border-bottom: .6px solid var(--ink); padding-bottom: 1.5mm; margin: 0 0 2.5mm; }
-.abstract p { margin: 0 0 2mm; font-size: 7.4pt; line-height: 1.45; }
+.abstract p { margin: 0 0 2.2mm; font-size: 8.6pt; line-height: 1.45; }  /* 8.6 pt since v1.14 (owner) */
 
 /* main text: PMC's two equal columns; paragraphs and section numbers as in Elsevier
    (no space between paragraphs, first line indented, "1." and "1.1.") */
@@ -107,3 +107,4 @@ figure img { width: 100%; display: block; }
 .t7 table { font-size: 6.9pt; }
 .t8 table { font-size: 7pt; }
 .flow svg { width: 100%; display: block; }
+.nw { white-space: nowrap; }  /* keeps D-AiQC / P-AiQC on one line */
