@@ -5,7 +5,7 @@ type: report
 authors:
   - family-names: Cancemi
     given-names: Alessandro
-date-released: "2026-11-26"
+date-released: "2026-11-27"
 repository-code: "https://github.com/tangozwo-max/pharma40research/tree/main/papers/2026-01-deviation-triage-small-model"
 url: "https://pharma40.de/research"
 license: CC-BY-4.0

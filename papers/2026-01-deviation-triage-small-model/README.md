@@ -22,7 +22,7 @@ Results are on synthetic data and await confirmation on real plant notes.
 
 | Path | What |
 |---|---|
-| `paper/` | the article: `Cancemi_2026_Task-specific-fine-tuning-of-a-small-AI-model-for-GMP-deviation-triage.pdf` (11 pages) and its HTML source (`experiment-2.html`) with `paper.css` and the figures |
+| `paper/` | the article: `Cancemi_2026_Task-specific-fine-tuning-of-a-small-AI-model-for-GMP-deviation-triage.pdf` (12 pages) and its HTML source (`experiment-2.html`) with `paper.css` and the figures |
 | `data/` | data set v2 as used in the article (frozen 23.11.2026), see below |
 | `CITATION.cff` | citation |
 
@@ -73,3 +73,4 @@ Check the files: `sha256sum data/*.jsonl` and compare with `MANIFEST.json`.
 - Article v1.7 – 26.11.2026: classifier arm added (DeBERTa-v3-base trained on the same notes; threshold pre-registered on dev before one prediction of the test sets): new sections 3.6 and 4.8, Table 8, abstract and conclusion extended; earlier tables 8–9 are now 9–10. Earlier results unchanged.
 - Article v1.8 – 26.11.2026: new layout (header with the pharma|40 logo and pharma40.de, author, history and keywords in a left column beside the abstract, footer with page numbers, in-text citations linked to the reference list); content as v1.7.
 - Article v1.9 – 26.11.2026: layout v3 (series "Artificial Intelligence in Regulated Industries", research number 2026-AIRI-01, QR code to this article, ruled footer); content as v1.7.
+- Article v1.10 – 27.11.2026, after a critical review before publication: the pre-registered primary cascade (adapter with S1+S2+S4+S5, −2.9 points) reported correctly; claims on writer style, repeatability at temperature 0, adapter rank and the comparison with the hosted reference toned down to what the data show; new section 4.9 on the draft EU GMP Annex 22; limitations extended; Table 7 header fixed. Numbers of the experiment unchanged.
