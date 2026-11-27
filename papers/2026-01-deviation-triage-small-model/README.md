@@ -1,6 +1,6 @@
-# 2026-01 · Task-specific fine-tuning of a small AI model for GMP deviation triage
+# 2026-AIRI-01 · Task-specific fine-tuning of a small AI model for GMP deviation triage
 
-*Effects of LoRA fine-tuning and switchable building blocks on classification accuracy and data integrity*
+*Effects of LoRA fine-tuning and switchable AI quality controls on classification accuracy and data integrity*
 (Experiment 2 of the pharma|40 virtual factory)
 
 **Status:** working paper, not peer reviewed · **Author:** Alessandro Cancemi · **Licence:** CC BY 4.0
@@ -10,7 +10,7 @@
 Shift staff describe deviations in short free-text notes; turning a note into a structured triage record
 (class, equipment, batch, time, evidence) is a narrow, repetitive task a language model could prepare for a human
 reviewer. Two errors matter: a wrong class and an invented value, which in GMP terms is a data-integrity failure.
-On a synthetic, generator-labelled data set of 4,286 notes from 150 cause families, five switchable building blocks
+On a synthetic, generator-labelled data set of 4,286 notes from 150 cause families, five switchable AI quality controls (AiQC)
 around one small open-weight model (Qwen3-8B) and LoRA fine-tuning were tested. Code-side grounding removed invented
 values (21.1 % to 0.0 %) without loss of classification; a LoRA adapter trained for 20 minutes raised macro-F1 on
 unseen cause families from 94.3 % to 98.2 %, not worse than a large hosted reference model on
@@ -76,3 +76,4 @@ Check the files: `sha256sum data/*.jsonl` and compare with `MANIFEST.json`.
 - Article v1.10 – 27.11.2026, after a critical review before publication: the pre-registered primary cascade (adapter with S1+S2+S4+S5, −2.9 points) reported correctly; claims on writer style, repeatability at temperature 0, adapter rank and the comparison with the hosted reference toned down to what the data show; new section 4.9 on the draft EU GMP Annex 22; limitations extended; Table 7 header fixed. Numbers of the experiment unchanged.
 - Article v1.11 – 27.11.2026: Figure 1 split into the pre-study comparison and the Qwen3-8B paired differences, fixed colour limits (also in Figure 3), titles "Pre-study" and "Main study"; new Figure 4 for the classifier (section 3.6, now "Added analysis"); section 2.3 with a worked macro-F1 example, an example of an invented value and a plain sentence on the confidence intervals; Table 10 marks throughput and prices as approximate; Conclusion with four findings and a more cautious opening; Outlook opening reworded. Numbers of the experiment unchanged.
 - Article v1.12 – 27.11.2026: figures show the levers of every set-up (examples, schema, LoRA, code blocks); the pre-study comparison (Figure 1, bottom) reads right = better for both measures; section 2.4 explains what the pre-study's LoRA result means and how the main study answered it. Numbers of the experiment unchanged.
+- Article v1.13 – 27.11.2026: the switchable steps around the model are called AI quality controls (AiQC), deterministic (D-AiQC) or probabilistic (P-AiQC), apart from training in the weights (Table 3 with a type column); section 4.3 rewritten as "What training changes, and what it does not" with a new Figure 5 (every adapter against the same model without it, both measures; an indication of a further gain on unseen causes marked as such); figures name only the model and label both marks of every row; research ID 2026-AIRI-01 and one date in the side column. Numbers of the experiment unchanged.

@@ -14,7 +14,7 @@ about is told in the [devlog](https://pharma40.de/devlog).
 
 | No. | Paper | Folder |
 |---|---|---|
-| 2026-01 | Task-specific fine-tuning of a small AI model for GMP deviation triage (Experiment 2) | [`papers/2026-01-deviation-triage-small-model`](papers/2026-01-deviation-triage-small-model) |
+| 2026-AIRI-01 | Task-specific fine-tuning of a small AI model for GMP deviation triage (Experiment 2) | [`papers/2026-01-deviation-triage-small-model`](papers/2026-01-deviation-triage-small-model) |
 
 Each paper has its own folder `papers/YYYY-NN-slug/` with
 
